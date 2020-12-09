@@ -33,8 +33,11 @@ public class ConexionBDD {
 	public static String leerPropiedad(String propiedad){
 		Properties properties = new Properties();
 		File file = new File("conexion.properties");
+		System.out.println("ruta:"+file.getAbsoluteFile());
 		try {
-			properties.load(new FileReader(file));	
+			file = new File("conexion.properties");
+			System.out.println("ruta:"+file.getAbsoluteFile());
+			properties.load(new FileReader(file.getAbsolutePath()));	
 			return properties.getProperty(propiedad) != null ? properties.getProperty(propiedad) : null;
 			
 		} catch (FileNotFoundException e) {
